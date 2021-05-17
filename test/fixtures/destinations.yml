@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mamber_id: 1
+  porstal_code: MyString
+  address: MyString
+  name: MyText
+  created_at: 2021-05-17 12:54:07
+  update_at: 2021-05-17 12:54:07
+
+two:
+  mamber_id: 1
+  porstal_code: MyString
+  address: MyString
+  name: MyText
+  created_at: 2021-05-17 12:54:07
+  update_at: 2021-05-17 12:54:07
