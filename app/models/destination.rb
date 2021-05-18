@@ -1,2 +1,2 @@
-class Destination < ApplicationRecord
+class Address < ApplicationRecord
 end
