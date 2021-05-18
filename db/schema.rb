@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_053905) do
+ActiveRecord::Schema.define(version: 2021_05_18_060339) do
 
-  create_table "addresse", force: :cascade do |t|
+  create_table "addresses", force: :cascade do |t|
     t.integer "mamber_id"
     t.string "porstal_code"
     t.string "address"
