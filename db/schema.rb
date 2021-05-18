@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_125415) do
+ActiveRecord::Schema.define(version: 2021_05_18_060339) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "mamber_id"
+    t.string "porstal_code"
+    t.string "address"
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "update_at"
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -40,16 +50,6 @@ ActiveRecord::Schema.define(version: 2021_05_17_125415) do
     t.string "porstal_code"
     t.string "phone_number"
     t.string "encrypted_password"
-    t.datetime "created_at", null: false
-    t.datetime "update_at"
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "destinations", force: :cascade do |t|
-    t.integer "mamber_id"
-    t.string "porstal_code"
-    t.string "address"
-    t.text "name"
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "updated_at", null: false
