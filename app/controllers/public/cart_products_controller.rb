@@ -15,7 +15,7 @@ class Public::CartProductsController < ApplicationController
     
     end
     
-    def destro_all
+    def destroy_all
     
     end
 end

@@ -3,7 +3,7 @@ class Public::OrdersController < ApplicationController
     
     end
     
-    def confilm
+    def confirm
     
     end
     
