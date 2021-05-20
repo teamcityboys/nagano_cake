@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_011236) do
     t.string "email"
     t.string "password"
     t.datetime "created_at", null: false
-    t.datetime "update_at"email
+    t.datetime "update_at",email
     t.datetime "updated_at", null: false
   end
 
