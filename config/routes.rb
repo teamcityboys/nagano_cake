@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  
   devise_for :customers
   root :to => "public/homes#top"
   get 'home/about' => 'public/homes#about'
@@ -19,7 +21,10 @@ Rails.application.routes.draw do
 
   resources :addresses, module: 'public', only: [:index, :create, :edit, :update, :destroy]
 
-  namespace :admin do
+  namespace :admins do
+    
+    get 'homes' => 'homes#top'
+    
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
 
     resources :genres, only: [:index, :create, :edit, :update]
