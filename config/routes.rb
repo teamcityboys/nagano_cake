@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root :to => "public/homes#top"
   get 'home/about' => 'public/homes#about'
   
-  resources :customer, module: 'public', only: [:show, :edit, :update]
+  
+  resources :customers, module: 'public', only: [:show, :edit, :update]
   get 'customer/withdraw' => 'public/customers#withdraw'
   patch 'customer/hide' => 'public/customers#hide'
   

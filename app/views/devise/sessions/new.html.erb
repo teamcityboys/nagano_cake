@@ -3,18 +3,18 @@
     <h5>会員の方はこちらから</h5>
     
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <table class="address">
-        <tr class="address">
-          <td class="address"><%= f.label :'メールアドレス' %></td>
-          <td class="address"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com', size:"50%" %></td>
+      <table class="table">
+        <tr>
+          <td><%= f.label :'メールアドレス' %></td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com', size:"50%" %></td>
         </tr>
-        <tr class="address">
-          <td class="address"><%= f.label :'パスワード' %></td>
-          <td class="address"><%= f.password_field :password, autocomplete: "current-password", size:"50%" %></td>
+        <tr>
+          <td><%= f.label :'パスワード' %></td>
+          <td><%= f.password_field :password, autocomplete: "current-password", size:"50%" %></td>
         </tr>
-        <tr class="address">
-          <td class="address"></td>
-          <td class="address"><%= f.submit "ログイン" , class:"btn btn-success"%></td>
+        <tr>
+          <td></td>
+          <td><%= f.submit "ログイン" , class:"btn btn-success"%></td>
         </tr>
       
       </table>
