@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_011236) do
     t.string "email"
     t.string "password"
     t.datetime "created_at", null: false
-    t.datetime "update_at"
+    t.datetime "update_at"email
     t.datetime "updated_at", null: false
   end
 
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_011236) do
     t.string "last_name_kana"
     t.boolean "is_deleted", default: false
     t.text "address"
-    t.string "porstal_code"
+    t.string "porstal_code" 
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "update_at"
