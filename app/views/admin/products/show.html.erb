@@ -19,7 +19,7 @@
       </div>
       <div class="row">
         <p class="col-md-4">税込価格<br>(税抜価格)</p>
-        <p class="col-md-8 admin-item-price"><%= @include_tax_price %>円(<%= @product.price.to_s(:delimited) %>円)</p>
+        <p class="col-md-8 admin-item-price"><%= @include_tax_price.to_s(:delimited) %>円(<%= @product.price.to_s(:delimited) %>円)</p>
       </div>                                                              <!--数字の3桁区切りコマンド-->
       <div class="row">
         <p class="col-md-4">販売ステータス</p>
