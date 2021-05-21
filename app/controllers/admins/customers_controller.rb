@@ -1,9 +1,9 @@
-class Admin::GenresController < ApplicationController
+class Admins::CustomersController < ApplicationController
     def index
         
     end
    
-    def create
+    def show
         
     end
    
