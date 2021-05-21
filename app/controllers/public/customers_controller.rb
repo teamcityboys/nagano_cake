@@ -18,7 +18,10 @@ class Public::CustomersController < ApplicationController
   end
 
   def hide
-
+    @customer = current_customer
+    @customer.update(is_deletd: true)
+    reset_session
+    redirect_to root_path
   end
 
   private
