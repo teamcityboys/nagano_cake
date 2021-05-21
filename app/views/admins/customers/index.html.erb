@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="admin-customer pt-5">
+  <div class="admins-customers pt-5">
     <h4 class="pb-3">会員一覧</h4>
     <table class="table">
       <tr class="table-info.bg-info">
@@ -14,7 +14,7 @@
             <%= customer.id %>
           </td>
           <td>
-            <%= link_to customer.full_name, admin_customer_path(customer), class: "text-dark" %>
+            <%= link_to customer.full_name, admins_customers_path(customer), class: "text-dark" %>
           </td>
           <td>
             <%= customer.email %>
