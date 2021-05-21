@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <p>ショッピングカート</p>
+    <table class="table table-bordered">
+      <tr>
+        <td>商品名</td>
+        <td>値段（税込）</td>
+        <td>数量</td>
+        <td>小径</td>
+        <td></td>
+      </tr>
+      <% @cart_products.each do |cart_product| %>
+      <tr>
+        <!--<td><%= cart_product.products.name %></td>-->
+        <td><%= cart_product.products.price %></td>
+        <%= form_with model:cart_product,url: cart_product_path(current_cart), local:true do |f| %>
+        <td>
+          <%= f.select :quantity, options_for_select((1..5).to_a, selected: cart_product.quantity)  %>
+          <%= f.submit '変更', class:'btn btn-success' %>
+        </td>
+        <% end %>
+        <td>
+          💸<%= ((cart_product.product.price*1.10).to_i*(cart_product.quantity).to_i).to_s(:deliminated) %>
+          <% @total += ((cart_product.product.price*1.10).to_i*(cart_product.quantity).to_i) %>
+        </td>
+        <td>
+          <%= link_to '削除する', cart_product_path(cart_products.id),class:"btn btn-danger" %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-md-2 offset-md-1 mt-3">
+      <%= link_to '買い物を続ける', root_path, class:"btn btn-primary" %>
+    </div>
+    <div class="col-sm-3 offset-md-6">
+      <table class="table table-bordered">
+        <tr>
+          <td>合計金額</td>
+          <td><%= @total.to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <%= link_to "情報入力に進む", root_path, class:"btn btn-success" %>
+</div>
