@@ -22,10 +22,4 @@ class Public::CartProductsController < ApplicationController
         @cart_products.destroy_all
         redirect_to cart_products
     end
-
-    private
-
-    def params_cart_product
-        params.require(:cart_product).permit(:quantity,:produvts_id)
-    end
 end
