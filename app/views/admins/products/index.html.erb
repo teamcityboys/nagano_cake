@@ -17,7 +17,7 @@
           <tr class ="product info">
             <td class="table-dark col-xs-1"><%= product.id %></td>
               <td class="text-left">
-                <%= link_to admin_product_path(product.id), class: "btn-link text-dark" do %>
+                <%= link_to admins_product_path(product.id), class: "btn-link text-dark" do %>
                   <%= product.name %>
                 <% end %>
               </td>
