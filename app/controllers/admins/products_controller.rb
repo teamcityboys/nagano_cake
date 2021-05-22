@@ -37,10 +37,7 @@ class Admins::ProductsController < ApplicationController
      end
     end
 
-    # def tax_price
-     # price * 1.1
-    # end
-
+   
     private
     def product_params
      params.require(:product).permit(:genre_id, :name, :describe, :price, :image, :is_active)  #ここ教えてもらう
