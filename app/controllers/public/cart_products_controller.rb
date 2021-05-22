@@ -1,12 +1,12 @@
 class Public::CartProductsController < ApplicationController
     def index
-
+        @cart_products = current_customer.cart_products
     end
 
     def create
         @cart_product = CartProduct.new(post_product_params)
         if @cart_product.save
-            redirect_to products_path
+            redirect_to cart_products_path
         else
             @cart_product.save!
             redirect_to home_about_path
@@ -14,19 +14,21 @@ class Public::CartProductsController < ApplicationController
     end
 
     def update
-
+        @cart_product = CartProduct.find(params[:id])
+        @cart_product.update(quantity: params[:cart_product][:quantity].to_i)
+        redirect_to cart_products_path
     end
 
     def destroy
+        @cart_product = CartProduct.find(params[:id])
         @cart_product.destroy
-        @cart_products = current_cart
-        @total_money = total_price(@cart_products).to_s(:deliminated)
+        redirect_to cart_products_path
     end
 
     def destroy_all
         @cart_products = current_customer.cart_products
         @cart_products.destroy_all
-        redirect_to cart_products
+        redirect_to cart_products_path
     end
 
     private
