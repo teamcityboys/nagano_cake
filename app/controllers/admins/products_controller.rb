@@ -11,7 +11,7 @@ class Admins::ProductsController < ApplicationController
      @product = Product.new(product_params)
      if @product.save
          flash[:notice] = "You have created Product successfully"
-       redirect_to admin_product_path(@product.id)
+       redirect_to admins_product_path(@product.id)
      else
          render :new
      end
@@ -31,7 +31,7 @@ class Admins::ProductsController < ApplicationController
      @product = Product.find(params[:id])
      if @product.update(product_params)
          flash[:notice] = "You have update Item successfully"
-       redirect_to admin_product_path(@product.id)
+       redirect_to admins_product_path(@product.id)
      else
        render :edit
      end
