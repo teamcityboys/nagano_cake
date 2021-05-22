@@ -5,11 +5,11 @@ class Public::CartProductsController < ApplicationController
 
     def create
         @cart_product = CartProduct.new(post_product_params)
+        @cart_product.member_id = current_customer.id
         if @cart_product.save
             redirect_to cart_products_path
         else
-            @cart_product.save!
-            redirect_to home_about_path
+            redirect_to product_path(@cart_product.product_id)
         end
     end
 

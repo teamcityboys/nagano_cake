@@ -1,6 +1,6 @@
 class Public::ProductsController < ApplicationController
    def index
-      @products = Product.page(params[:page])
+      @products = Product.page(params[:page]).where.not(is_active: false)
    end
 
    def show
