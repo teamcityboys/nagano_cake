@@ -1,0 +1,46 @@
+<h2>注文情報入力</h2>
+<%= form_with model:@order, url:order_confirm_path, local:true do |f| %>
+  <h3>支払方法</h3>
+  <div class="form-group">
+    <div class="radio">
+      <%= f.radio_button :payment_method, 0, :checked=>'checked' %>
+      <%= f.label :payment_method, "クレジットカード", {value: 0} %>
+    </div>
+    <div class="radio">
+      <%= f.radio_button :payment_method, 1 %>
+      <%= f.label :payment_method, "銀行振込", {value: 1} %>
+    </div>
+  </div>
+  
+  <h3>お届け先</h3>
+  <div class="form-group">
+    <div class="radio">
+      <%= f.radio_button :destination_type, 0, :checked=>'checked' %>
+      <%= f.label :destination_type, "ご自身の住所", {value: 0} %><br>
+      〒<%= current_customer.porstal_code %> <%=current_customer.address %><br>
+      <%= current_customer.last_name %><%= current_customer.first_name%>
+    </div>
+    <div class="radio">
+      <%= f.radio_button :destination_type, 1 %>
+      <%= f.label :destination_type, "登録済住所から選択", {value: 1} %><br>
+      <%= f.collection_select(:addresses, @addresses, :id, :view_porstal_code_and_address_and_name) %>
+    </div>
+    <div class="radio">
+      <%= f.radio_button :destination_type, 2 %>
+      <%= f.label :destination_type, "新しいお届け先", {value: 2} %>
+      <div>
+        <%= f.label "郵便番号（ハイフン無し）" %>
+        <%= f.text_field :porstal_code %>
+      </div>
+      <div>
+        <%= f.label "住所" %>
+        <%= f.text_field :address %>
+      </div>
+      <div>
+        <%= f.label "宛名" %>
+        <%= f.text_field :name %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit '確認画面へ進む', class: "btn btn-success ml-4" %>
+<% end %>
