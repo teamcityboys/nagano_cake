@@ -5,6 +5,11 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_products, dependent: :destroy,foreign_key: 'member_id'
+  has_many :orders, dependent: :destroy
+
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 
 
   #フルネームメソッド
