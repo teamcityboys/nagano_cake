@@ -10,6 +10,9 @@
         <ul class="navbar-nav mr-4">
           <% if customer_signed_in? %>
           <li class="nav-item mr-4">
+            <span class="navbar-text text-dark">ようこそ！<%= current_customer.last_name %>さん🌮</span>
+          </li>
+          <li class="nav-item mr-4">
             <%= link_to "マイページ",customer_path(current_customer.id), class: 'btn btn-outline-dark btn-lg' %>
           </li>
           <li class="nav-item mr-4">
@@ -21,9 +24,25 @@
           <li class="nav-item mr-4">
             <%= link_to "ログアウト",destroy_customer_session_path, method: :delete, class: 'btn btn-outline-dark btn-lg' %>
           </li>
+          <% elsif admin_signed_in? %>
+          <li class="nav-item mr-4">
+            <%= link_to "商品一覧", admins_products_path, class: 'btn btn-outline-dark btn-lg' %>
+          </li>
+          <li class="nav-item mr-4">
+            <%= link_to "会員一覧", admins_customers_path, class: 'btn btn-outline-dark btn-lg' %>
+          </li>
+          <li class="nav-item mr-4">
+            <%= link_to "注文履歴一覧", admins_orders_path, class: 'btn btn-outline-dark btn-lg' %>
+          </li>
+          <li class="nav-item mr-4">
+            <%= link_to "ジャンル一覧", admins_genres_path, class: 'btn btn-outline-dark btn-lg' %>
+          </li>
+          <li class="nav-item mr-4">
+            <%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: 'btn btn-outline-dark btn-lg' %>
+          </li>
           <% else %>
           <li class="nav-item mr-4">
-            <%= link_to "about", home_about_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "About", home_about_path, class: 'btn btn-outline-dark btn-lg' %>
           </li>
           <li class="nav-item mr-4">
             <%= link_to "商品一覧", products_path, class: 'btn btn-outline-dark btn-lg' %>
