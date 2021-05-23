@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create, :edit, :update]
 
     resources :customers, only: [:index, :show, :edit, :update]
+    put "/customers/:id/hide" => "customers#hide", as: 'customers_hide'
 
     resources :orders, only: [:index, :show, :update] do
 
