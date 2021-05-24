@@ -1,9 +1,10 @@
-<div class="row offset-1">
-    <div class="col mt-5">
-      <h2>商品一覧</h2>
+<div class="container">
+  <div class="row ">
+      <div class="col mt-5">
+        <h2>商品一覧</h2>
+      </div>
     </div>
-  </div>
-  <div class="row offset-1 d-flex align-items-start">
+    <div class="row mx d-flex align-items-start">
     <% @products.each do |product| %>
     <div class="col-md-3 ">
       <%= link_to product_path(product.id) do %>
@@ -15,7 +16,8 @@
       ￥<%= ((product.price * 1.1).to_i).to_s(:deliminated) %><br>
     </div>
     <% end %>
+    </div>
+  <div class="mt-5" >
+    <%= paginate @products %>
   </div>
-<div class="mt-5" >
-  <%= paginate @products %>
 </div>
