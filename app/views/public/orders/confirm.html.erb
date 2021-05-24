@@ -1,41 +1,55 @@
-<h2>注文情報確認</h2>
-<table class="table table-bordered">
-  <tr>
-    <td>商品名</td>
-    <td>値段（税込）</td>
-    <td>数量</td>
-    <td>小計</td>
-  </tr>
-  <% @sum = 0 %>
-  <% @cart_products.each do |cart_product| %>
-  <tr>
-    <td><%= cart_product.product.name %></td>
-    <td><%= ((cart_product.product.price * 1.1).to_i).to_s(:deliminated) %></td>
-    <td><%= cart_product.quantity %></td>
-    <% @sum += cart_product.product.price * cart_product.quantity %>
-    <td><%= ((cart_product.product.price * 1.1).to_i*(cart_product.quantity).to_i).to_s(:deliminated) %></td>
-  </tr>
-  <% end %>
-</table>
-<table class="table table-bordered">
-  <tr>
-    <td>送料</td>
-    <td>商品合計</td>
-    <td>請求金額</td>
-  </tr>
-  <tr>
-    <td>800</td>
-    <td><%= @order.charge %></td>
-    <td><%= (@order.charge + 800 ) %></td>
-  </tr>
-</table>
-
-<h4>支払方法</h4>
-<p><%= @order.payment_method %></p>
-
-<h4>お届け先</h4>
-<p>
-  〒<%= @order.porstal_code %> <%= @order.address %><br>
-  <%= @order.name %>
-</p>
-<%= link_to "注文を確定する", order_complete_path, class:"btn btn-success" %>
+<div class="container">
+  <h4 class="mx-5 my-5"><span class="px-4 bg-light">注文情報確認</span></h4>
+  <div class="row">
+    <div class="ml-1 col-8">
+      <table class="table table-bordered  h6">
+        <tr>
+          <td class="item">商品名</td>
+          <td class="price">値段（税込）</td>
+          <td class="quantity">数量</td>
+          <td class="total">小計</td>
+        </tr>
+        <% @sum = 0 %>
+        <% @cart_products.each do |cart_product| %>
+        <tr>
+          <td><%= cart_product.product.name %></td>
+          <td><%= ((cart_product.product.price * 1.1).to_i).to_s(:deliminated) %></td>
+          <td><%= cart_product.quantity %></td>
+          <% @sum += cart_product.product.price * cart_product.quantity %>
+          <td><%= ((cart_product.product.price * 1.1).to_i*(cart_product.quantity).to_i).to_s(:deliminated) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-3">
+      <table class="table table-bordered ">
+        <tr>
+          <td>送料</td>
+          <td>800</td>
+        </tr>
+        <tr>
+          <td>商品合計</td>
+          <td><%= @order.charge %></td>
+        </tr>
+        <tr>
+          <td>請求金額</td>
+          <td><%= (@order.charge + 800 ) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row my-4">
+    <h5>支払方法</h5>
+    <p class="mx-4"><%= @order.payment_method %></p>
+  </div>
+  <div class="row my-4">
+    <h5>お届け先</h5>
+    <p class="mx-4">
+      〒<%= @order.porstal_code %> <%= @order.address %><br>
+      <%= @order.name %>
+    </p>
+  </div>
+  <div class="text-center">
+    <%= link_to "注文を確定する", order_complete_path, class:"btn btn-success" %>
+  </div>
+</div>
