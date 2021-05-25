@@ -1,6 +1,7 @@
 class Admins::ProductsController < ApplicationController
     def index
-     @products = Product.all
+     @products = Product.all.page(params[:page]).per(7)
+     # 1ページに10件のレコードを表示
     end
 
     def new
