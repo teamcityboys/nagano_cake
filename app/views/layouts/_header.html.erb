@@ -26,32 +26,32 @@
           </li>
           <% elsif admin_signed_in? %>
           <li class="nav-item mr-4">
-            <%= link_to "商品一覧", admins_products_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "商品一覧", admins_products_path, class: 'btn btn-secondary btn-lg' %>
           </li>
           <li class="nav-item mr-4">
-            <%= link_to "会員一覧", admins_customers_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "会員一覧", admins_customers_path, class: 'btn btn-secondary btn-lg' %>
           </li>
           <li class="nav-item mr-4">
-            <%= link_to "注文履歴一覧", admins_orders_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "注文履歴一覧", admins_orders_path, class: 'btn btn-secondary btn-lg' %>
           </li>
           <li class="nav-item mr-4">
-            <%= link_to "ジャンル一覧", admins_genres_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "ジャンル一覧", admins_genres_path, class: 'btn btn-secondary btn-lg' %>
           </li>
           <li class="nav-item mr-4">
-            <%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "ログアウト",destroy_admin_session_path, method: :delete, class: 'btn btn-secondary btn-lg' %>
           </li>
           <% else %>
           <li class="nav-item mr-4">
-            <%= link_to "About", home_about_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "About", home_about_path, class: 'btn btn-secondary btn-lg' %>
           </li>
           <li class="nav-item mr-4">
-            <%= link_to "商品一覧", products_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "商品一覧", products_path, class: 'btn btn-secondary btn-lg' %>
           </li>
           <li class="nav-item mr-4">
-            <%= link_to "新規登録",new_customer_registration_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "新規登録",new_customer_registration_path, class: 'btn btn-secondary btn-lg' %>
           </li>
           <li class="nav-item mr-4">
-            <%= link_to "ログイン",new_customer_session_path, class: 'btn btn-outline-dark btn-lg' %>
+            <%= link_to "ログイン",new_customer_session_path, class: 'btn btn-secondary btn-lg' %>
           </li>
           <% end %>
         </ul>
