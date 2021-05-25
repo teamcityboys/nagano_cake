@@ -21,7 +21,7 @@ class Public::OrdersController < ApplicationController
             @order.customer_id = current_customer.id
             @order.freight = 800
             @order.charge = (sum * 1.1).floor
-            @order.payment_method = params[:payment_method].to_i
+            @order.payment_method = post_order_params[:payment_method].to_i
         elsif post_order_params[:destination_type].to_i == 1        #登録先住所から選択
             address = Address.find(post_order_params[:addresses])
             @order = Order.new
@@ -31,7 +31,7 @@ class Public::OrdersController < ApplicationController
             @order.customer_id = current_customer.id
             @order.freight = 800
             @order.charge = (sum * 1.1).floor
-            @order.payment_method = params[:payment_method].to_i
+            @order.payment_method = post_order_params[:payment_method].to_i
         else                                                        #新しいお届け先
             @order = Order.new
             @order.porstal_code = post_order_params[:porstal_code]
@@ -40,7 +40,7 @@ class Public::OrdersController < ApplicationController
             @order.customer_id = current_customer.id
             @order.freight = 800
             @order.charge = (sum * 1.1).floor
-            @order.payment_method = params[:payment_method].to_i
+            @order.payment_method = post_order_params[:payment_method].to_i
         end
         
         session[:posts] = @order
