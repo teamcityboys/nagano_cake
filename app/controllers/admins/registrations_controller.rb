@@ -24,6 +24,5 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   def destroy
     super
   end
-
     
 end
