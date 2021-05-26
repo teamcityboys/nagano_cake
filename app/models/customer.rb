@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_products, dependent: :destroy,foreign_key: 'member_id'
+  has_many :addresses, dependent: :destroy,foreign_key: 'mamber_id'
   has_many :orders, dependent: :destroy
 
   def active_for_authentication?
