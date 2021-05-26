@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-offset-1 col-xs-8">
+        <div class="col-md-offset-1 col-md-7">
             <h4 class="font-weight-bold">マイページ</h4>
-            <p>　登録情報　<%= link_to "編集する", edit_customer_path(current_customer),class: "btn btn-success" %></p>
+            <p class="mt-5"><strong>登録情報</strong>
+              <%= link_to "編集する", edit_customer_path(current_customer),class: "btn btn-success" %></p>
             <table class="table table-bordered table-condensend">
 　　          <tr>
                 <td>氏名</td>
@@ -29,8 +30,8 @@
                 <td><%= @customer.email %></td>
                 </tr>
             </table>
-            <p>配送先　<%= link_to "一覧を見る", root_path, class: "btn btn-info" %></p>
-            <p>注文履歴 <%= link_to "一覧を見る", root_path, class: "btn btn-info" %></p>
+            <p>配送先　 <%= link_to "一覧を見る", addresses_path, class: "btn btn-info" %></p>
+            <p>注文履歴 <%= link_to "一覧を見る", orders_path, class: "btn btn-info" %></p>
         </div>
     </div>
 </div>
