@@ -7,8 +7,6 @@ Things you may want to cover:
 
 * Ruby version
 
-* Rails version 5.2.6
-
 * System dependencies
 
 * Configuration
