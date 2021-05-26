@@ -6,13 +6,13 @@ class Public::OrdersController < ApplicationController
 
     def confirm
         @cart_products = current_customer.cart_products
-        
+
         # カート内金額総計算出
         sum = 0
         for cart_product in @cart_products
             sum += cart_product.product.price * cart_product.quantity
         end
-        
+
         if post_order_params[:destination_type].to_i == 0           #ご自身の住所
             @order = Order.new
             @order.porstal_code = current_customer.porstal_code
@@ -42,7 +42,7 @@ class Public::OrdersController < ApplicationController
             @order.charge = (sum * 1.1).floor
             @order.payment_method = post_order_params[:payment_method].to_i
         end
-        
+
         session[:posts] = @order
     end
 
@@ -54,7 +54,7 @@ class Public::OrdersController < ApplicationController
         ActiveRecord::Base.transaction do
             order = Order.new(session[:posts])
             order.save!
-            
+
             cart_products = current_customer.cart_products
             for cart_product in cart_products
                 order_detail = OrderDetail.new
@@ -62,10 +62,10 @@ class Public::OrdersController < ApplicationController
                 order_detail.product_id = cart_product.product_id
                 order_detail.price = (cart_product.product.price.to_i * 1.1).floor
                 order_detail.quantity = cart_product.quantity
-                
+
                 order_detail.save!
             end
-            
+
             cart_products = current_customer.cart_products
             cart_products.destroy_all
         end
@@ -78,9 +78,9 @@ class Public::OrdersController < ApplicationController
     def show
 
     end
-    
+
     private
-    
+
     def post_order_params
         params.require(:order).permit(:payment_method, :destination_type, :addresses, :porstal_code, :address, :name)
     end
