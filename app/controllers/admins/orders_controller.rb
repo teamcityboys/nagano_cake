@@ -24,11 +24,14 @@ class Admins::OrdersController < ApplicationController
         @order.order_details.each do |order_detail|
         @order_total += order_detail.price * order_detail.quantity
         end
+        p @order.order_status
     end
 
     def update
         @order = Order.find(params[:id])
-       if @order.update(order_params)
+        status_params[:order_status] = status_params[:order_status].to_i
+        @order.update(params_int(status_params))
+       if
            flash[:success] = "注文ステータスを変更しました"
            redirect_to admins_orders_path
        else
@@ -40,5 +43,13 @@ class Admins::OrdersController < ApplicationController
     private
     def status_params
         params.require(:order).permit(:order_status)
+    end
+
+    def params_int(model_params)
+        model_params.each do |key,value|
+
+            model_params[key]=value.to_i
+
+        end
     end
 end
