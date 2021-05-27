@@ -22,7 +22,7 @@ class Admins::ProductsController < ApplicationController
      @product = Product.find(params[:id])
      @include_tax_price = (@product.price * 1.1).floor
     end
-     
+
 
     def edit
      @product = Product.find(params[:id])
@@ -36,6 +36,12 @@ class Admins::ProductsController < ApplicationController
      else
        render :edit
      end
+    end
+
+    def destroy
+     @product = Product.find(params[:id])
+     @product.destroy
+     redirect_to admins_products_path
     end
 
     # def tax_price
