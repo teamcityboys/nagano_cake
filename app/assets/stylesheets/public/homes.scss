@@ -1,0 +1,74 @@
+// Place all the styles related to the public/homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-visual {
+  border: 1px solid #000;
+  background-image: image-url('cupcakes-1208234_1920.jpg');
+  height: 350px;
+  width: 700px;
+  background-size: cover;
+  background-position: center;
+}
+
+.text-back {
+  border: 3px solid #000;
+  background-color: white;
+  width: 500px;
+  margin-top: 100px;
+}
+
+// .about-image {
+//   border: 1px solid #000;
+//   background-image: image-url('cupcakes-1208234_1920.jpg');
+//   height: 250px;
+//   width: 500px;
+//   margin: 0 auto;
+//   background-size: cover;
+//   background-position: center;
+// }
+
+.about-title {
+  font-size: 100px;
+}
+
+.about-text {
+  font-size: 25px;
+}
+
+.slide {
+  position   : relative;
+  overflow   : hidden;
+
+  width      : 400px;
+  height     : 250px;
+  margin     : auto;
+  background : #fff;
+}
+
+
+.slide img {
+  display    : block;
+  position   : absolute;
+
+  width      : inherit;
+  height     : inherit;
+  opacity    : 0;
+  animation  : slideAnime 20s ease infinite;
+}
+
+// 時間設定
+.slide img:nth-of-type(1) { animation-delay: 0s }
+.slide img:nth-of-type(2) { animation-delay: 4s }
+.slide img:nth-of-type(3) { animation-delay: 8s }
+.slide img:nth-of-type(4) { animation-delay: 12s }
+.slide img:nth-of-type(5) { animation-delay: 16s }
+
+
+@keyframes slideAnime{
+   0% { opacity: 0; transform: rotateY(90deg) }
+   10% { opacity: 1; transform: rotateY(0deg)  }
+  10% { opacity: 1; transform: rotateY(0deg)  }
+  20% { opacity: 0; transform: rotateY(90deg) }
+ 100% { opacity: 0; transform: rotateY(90deg) }
+}

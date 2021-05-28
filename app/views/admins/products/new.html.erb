@@ -1,0 +1,45 @@
+<div class="text-danger">
+<% if @product.errors.any? %>
+   <span class="h4"><%= @product.errors.count %>errors prohibited this obj from being saved:</span>
+  <% @product.errors.full_messages.each do |message| %><br>
+     ・<%= message %>
+  <% end %>
+<% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-md-5">
+      <h1 class="mb-5">商品新規登録</h1>
+        <%= form_with model: @product, url: admins_products_path, local: true do |f| %>
+          <div class="form-group row">
+            <p class="col-md-5">商品画像</p>
+            <span><%= attachment_image_tag @product, :image_id, format: 'jpeg', fallback: 'no_image.jpg', size:'300x200'%></span>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"商品名", class: "col-sm-5 control-label" %>
+            <%= f.text_field :name, class: "col-sm-7 form-control-static name" %>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"商品説明", class: "col-sm-5 control-label" %>
+            <%= f.text_area :describe, class: "col-sm-7 control-label explanation" %>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"ジャンル", class: "col-sm-5 control-label" %>
+            <%= f.collection_select(:genre_id, Genre.all, :id, :name, prompt: "-- 選択してください --", class: "col-sm-7 genre_id") %>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"税抜価格", class: "col-sm-5 control-label" %>
+            <%= f.text_field :price, class: "col-sm-6 form-control-static tax_out_price mr-2" %>円
+          </div>
+          <div class="form-group row radio_button">
+            <%= f.label :"販売ステータス", class: "col-sm-5 control-label" %>
+            <%= f.radio_button :is_active, true %>
+            <%= f.label :is_active, "販売中", value: :true %>
+            <%= f.radio_button :is_active, false, class: "ml-3" %>
+            <%= f.label :is_active, "販売停止中", value: :false %>
+          </div>
+        <%= f.submit '新規登録', class: "btn btn-success btn-lg mx-auto d-block" %>
+        <% end %>
+    </div>
+  </div>
+</div>
